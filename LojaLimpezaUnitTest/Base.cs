@@ -78,6 +78,11 @@ namespace LojaLimpezaUnitTest
                 Produto = produto    
             };
 
+            StatusPedido statusPedido = new StatusPedido()
+            {
+
+            };
+
             Pedido pedido = new Pedido()
             {
                  IdPedido = 1,
