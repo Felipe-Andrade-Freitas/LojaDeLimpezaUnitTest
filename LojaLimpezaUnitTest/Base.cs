@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace LojaLimpezaUnitTest
 {
-    public class Base
+    public class BaseTest
     {
         public void Preenche()
         {
+            //Cadastro do Cliente
+
             Endereco endereco = new Endereco()
             {
                 IdEndereco = 12,
@@ -53,66 +55,157 @@ namespace LojaLimpezaUnitTest
                 StatusCliente = statusCliente
             };
 
-            Categoria categoria = new Categoria()
+            //Cadastro das Categorias
+            Categoria banheiros = new Categoria()
             {
                 IdCategoria = 1,
-                NomeCategoria = "Sabão"                
+                NomeCategoria = "Banheiro"
             };
 
-            Produto produto = new Produto()
+            Categoria lavanderia = new Categoria()
             {
-                 IdProduto = 1,
-                 CodigoDoProduto = "A12345BC6789",
-                 NomeProduto = "Sabão em pó",
-                 DataFabricacao = new DateTime(2016, 08, 01),
-                 DataValidacao = new DateTime(2019, 03, 12),
-                 QuantidadeEmEstoque = 196,
-                 Categoria = categoria,
-                 ValorProduto = 245
+                IdCategoria = 1,
+                NomeCategoria = "Lavanderia"
             };
 
-            ItemPedido itemPedido = new ItemPedido()
+            Categoria loucas = new Categoria()
+            {
+                IdCategoria = 1,
+                NomeCategoria = "Louças"
+            };
+
+            //Cadastro dos Produtos
+            Produto vejaBanheiro = new Produto()
+            {
+                IdProduto = 1,
+                CodigoDoProduto = "BAN001",
+                NomeProduto = "Veja Limpeza Total",
+                DataFabricacao = new DateTime(2016, 08, 01),
+                DataValidacao = new DateTime(2019, 03, 12),
+                QuantidadeEmEstoque = 196,
+                Categoria = banheiros,
+                ValorProduto = 245
+            };
+
+            Produto omo = new Produto()
+            {
+                IdProduto = 1,
+                CodigoDoProduto = "LAV001",
+                NomeProduto = "Sabão em pó - OMO",
+                DataFabricacao = new DateTime(2016, 08, 01),
+                DataValidacao = new DateTime(2019, 03, 12),
+                QuantidadeEmEstoque = 196,
+                Categoria = lavanderia,
+                ValorProduto = 245
+            };
+
+            Produto vejaLoucas = new Produto()
+            {
+                IdProduto = 1,
+                CodigoDoProduto = "LOU001",
+                NomeProduto = "Veja Multiuso",
+                DataFabricacao = new DateTime(2016, 08, 01),
+                DataValidacao = new DateTime(2019, 03, 12),
+                QuantidadeEmEstoque = 196,
+                Categoria = loucas,
+                ValorProduto = 245
+            };
+
+            //Cadastro dos itens de pedidos
+            ItemPedido itemVejaBanheiro = new ItemPedido()
             {
                 IdItemPedido = 1,
                 QuantidadeProduto = 4,
-                Produto = produto    
+                Produto = vejaBanheiro
             };
 
+            ItemPedido itemOmo = new ItemPedido()
+            {
+                IdItemPedido = 2,
+                QuantidadeProduto = 8,
+                Produto = omo
+            };
+
+            ItemPedido itemVejaLoucas = new ItemPedido()
+            {
+                IdItemPedido = 3,
+                QuantidadeProduto = 2,
+                Produto = vejaLoucas
+            };
+
+            //Cadastro do pedido
             StatusPedido statusPedido = new StatusPedido()
             {
+                IdStatus = 1,
+                NomeStatus = "Em Faturamento"
 
             };
 
             Pedido pedido = new Pedido()
             {
-                 IdPedido = 1,
-                 DataPedido = new DateTime(2017, 02, 01),
-                 Cliente = cliente
+                IdPedido = 1,
+                DataPedido = new DateTime(2017, 02, 01),
+                Cliente = cliente
             };
 
+            //Cadastro do fornecedor
             StatusFornecedor statusFornecedor = new StatusFornecedor()
             {
                 IdStatus = 1,
                 NomeStatus = "Bom"
             };
 
-            Fornecedor fornecedor = new Fornecedor()
+            Fornecedor limpeMais = new Fornecedor()
             {
                 IdFornecedor = 1,
                 CNPJ = "123",
-                NomeFantasia = "LimpeMais",
-                RazaoSocial = "LimpeMais",
+                NomeFantasia = "Limpe Mais",
+                RazaoSocial = "Limpe Mais",
                 StatusFornecedor = statusFornecedor
             };
 
+            Fornecedor limpezaTotal = new Fornecedor()
+            {
+                IdFornecedor = 1,
+                CNPJ = "123",
+                NomeFantasia = "Limpeza Total",
+                RazaoSocial = "Limpeza Total LTDA",
+                StatusFornecedor = statusFornecedor
+            };
+
+            //Implementação de Listas
+
+            //Telefone
             contato.ListaDeTelefones.Add(telefone);
-            categoria.ListaDeProduto.Add(produto);
-            pedido.ListaDeItemPedido.Add(itemPedido);
-            pedido.ListaDePedido.Add(pedido);
+
+            //Produtos
+            banheiros.ListaDeProduto.Add(vejaBanheiro);
+            lavanderia.ListaDeProduto.Add(omo);
+            loucas.ListaDeProduto.Add(vejaLoucas);
+
+            //Item Pedido
+            pedido.ListaDeItemPedido.Add(itemVejaBanheiro);
+            pedido.ListaDeItemPedido.Add(itemOmo);
+            pedido.ListaDeItemPedido.Add(itemVejaLoucas);
+
+            //Pedido Cliente
             cliente.ListaDePedido.Add(pedido);
-            produto.ListaDeProdutos.Add(produto);
-            produto.ListaDeItemDoPedido.Add(itemPedido);
-            produto.ListaDeFornecedores.Add(fornecedor);
+
+            //Veja Limpeza Total
+            vejaBanheiro.ListaDeProdutos.Add(vejaBanheiro);
+            vejaBanheiro.ListaDeItemDoPedido.Add(itemVejaBanheiro);
+            vejaBanheiro.ListaDeFornecedores.Add(limpeMais);
+
+            //Sabão em pó - OMO
+            omo.ListaDeProdutos.Add(omo);
+            omo.ListaDeItemDoPedido.Add(itemOmo);
+            omo.ListaDeFornecedores.Add(limpeMais);
+
+            //Veja Multiuso
+            vejaLoucas.ListaDeProdutos.Add(vejaLoucas);
+            vejaLoucas.ListaDeItemDoPedido.Add(itemVejaLoucas);
+            vejaLoucas.ListaDeFornecedores.Add(limpeMais);
+            vejaLoucas.ListaDeFornecedores.Add(limpezaTotal);
         }
     }
 }
