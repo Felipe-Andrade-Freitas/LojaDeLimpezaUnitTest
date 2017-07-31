@@ -22,17 +22,17 @@ namespace LojaLimpeza
         {
 
         }
-        public bool VerificarStatusCadastrado(string nomeStatus)
-        {
-            VerificaStatusCadastrado = NomeStatus == nomeStatus;
+        //public bool VerificarStatusCadastrado(string nomeStatus)
+        //{
+        //    VerificaStatusCadastrado = NomeStatus == nomeStatus;
 
-            if(VerificaStatusCadastrado)
-            {
-                return true;
-                throw new System.ArgumentException("Stauts Fornecedor já cadastrado");
-            }
-            return false;
-        }
+        //    if(VerificaStatusCadastrado)
+        //    {
+        //        return true;
+        //        throw new System.ArgumentException("Stauts Fornecedor já cadastrado");
+        //    }
+        //    return false;
+        //}
 
         #endregion
     }

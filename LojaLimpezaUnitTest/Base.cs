@@ -9,7 +9,7 @@ namespace LojaLimpezaUnitTest
 {
     public class BaseTest
     {
-        public void Preenche()
+        public ItemPedido PreenchePedidos()
         {
             //Cadastro do Cliente
 
@@ -84,7 +84,7 @@ namespace LojaLimpezaUnitTest
                 DataValidacao = new DateTime(2019, 03, 12),
                 QuantidadeEmEstoque = 196,
                 Categoria = banheiros,
-                ValorProduto = 245
+                ValorProduto = 4
             };
 
             Produto omo = new Produto()
@@ -116,7 +116,8 @@ namespace LojaLimpezaUnitTest
             {
                 IdItemPedido = 1,
                 QuantidadeProduto = 4,
-                Produto = vejaBanheiro
+                Produto = vejaBanheiro,
+                ValorTotalItemPedido = 16                
             };
 
             ItemPedido itemOmo = new ItemPedido()
@@ -206,6 +207,8 @@ namespace LojaLimpezaUnitTest
             vejaLoucas.ListaDeItemDoPedido.Add(itemVejaLoucas);
             vejaLoucas.ListaDeFornecedores.Add(limpeMais);
             vejaLoucas.ListaDeFornecedores.Add(limpezaTotal);
+
+            return itemVejaBanheiro;
         }
     }
 }

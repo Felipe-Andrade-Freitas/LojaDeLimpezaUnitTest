@@ -14,12 +14,19 @@ namespace LojaLimpeza
 
         public int QuantidadeProduto { get; set; }
 
+        public float ValorTotalItemPedido { get; set; }
+
         public Produto Produto { get; set; }
 
         #endregion
 
         #region Metodos
+        Produto produto = new Produto();
 
+        public void ValorItemPedido()
+        {            
+            ValorTotalItemPedido = produto.ValorProduto * QuantidadeProduto;
+        }
         public void SelecaoQuantidadeProduto()
         {
 

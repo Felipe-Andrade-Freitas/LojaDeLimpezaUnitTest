@@ -25,7 +25,7 @@ namespace LojaLimpeza
 
         public Categoria Categoria { get; set; }
 
-        public float ValorProduto { get; set; }
+        public int ValorProduto { get; set; }
 
         public IList<Produto> ListaDeProdutos = new List<Produto>();
 
